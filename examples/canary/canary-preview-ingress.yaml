@@ -8,10 +8,11 @@ metadata:
     ingress.kubernetes.io/app-root: /
 spec:
   rules:
-  - host: canary-preview.dev.argoproj.io
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: canary-demo-preview
-          servicePort: 80
+    - host: canary-preview.dev.argoproj.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              serviceName: canary-demo-preview
+              servicePort: 80
